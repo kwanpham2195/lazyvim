@@ -29,6 +29,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.copilot" },
     -- ui
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
+    -- util
+    { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
     { import = "plugins" },
   },
