@@ -9,10 +9,10 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = "latte",
-        dark = "mocha",
+        dark = "macchiato",
       },
       term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       transparent_background = false, -- disables setting the background color.
@@ -42,13 +42,6 @@ return {
         telescope = true,
         notify = true,
         mini = true,
-      },
-      color_overrides = {
-        mocha = {
-          base = "#000000",
-          mantle = "#000000",
-          crust = "#000000",
-        },
       },
     },
   },
