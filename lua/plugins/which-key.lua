@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     defaults = {
-      ["<leader>l"] = { name = "+lsp/lazy" },
+      ["<leader>l"] = { name = "+lsp" },
     },
   },
 }
