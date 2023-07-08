@@ -40,6 +40,6 @@ return {
     else
       keys[#keys + 1] = { "<leader>lR", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
     end
-    require("lazyvim.plugins.lsp.keymaps").set(keys)
+    require("lazyvim.plugins.lsp.keymaps")._keys = keys
   end,
 }

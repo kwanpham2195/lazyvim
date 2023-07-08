@@ -29,6 +29,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     -- coding
     { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
     -- ui
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     -- util
