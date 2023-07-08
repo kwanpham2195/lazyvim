@@ -8,7 +8,6 @@ return {
       "stylua",
       "shfmt",
       -- Linter
-      "eslint_d",
       "shellcheck",
       "tflint",
       "yamllint",
