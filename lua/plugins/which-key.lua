@@ -4,6 +4,7 @@ return {
   opts = {
     defaults = {
       ["<leader>l"] = { name = "+lsp" },
+      ["<leader>h"] = { name = "+harpoon" },
     },
   },
 }
