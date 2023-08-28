@@ -1,0 +1,36 @@
+return {
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      table.insert(opts.ensure_installed, "prettierd")
+    end,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      table.insert(
+        opts.sources,
+        nls.builtins.formatting.prettierd.with({
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "css",
+            "scss",
+            "less",
+            "html",
+            "json",
+            "jsonc",
+            "markdown",
+            "markdown.mdx",
+            "graphql",
+            "handlebars",
+          },
+        })
+      )
+    end,
+  },
+}
