@@ -14,6 +14,9 @@ return {
     -- change some options
     opts = {
       defaults = {
+
+        layout_strategy = "horizontal",
+        layout_config = { height = 0.9, width = 0.9, preview_width = 0.4 },
         file_ignore_patterns = {
           "%.7z",
           "%.JPEG",
