@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     defaults = {
-      ["<leader>l"] = { name = "+lsp" },
       ["<leader>h"] = { name = "+harpoon" },
     },
   },

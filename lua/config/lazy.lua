@@ -22,25 +22,27 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
+    -- lsp
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
     -- test
     { import = "lazyvim.plugins.extras.test.core" },
-    -- formatting
-    -- use custom setting
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- linting
     { import = "lazyvim.plugins.extras.linting.eslint" },
+    -- formatting
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- coding
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
-    -- ui
-    -- { import = "lazyvim.plugins.extras.ui.edgy" },
     -- util
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.util.project" },
+    -- editor
+    -- { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.editor.navic" },
+    { import = "lazyvim.plugins.extras.editor.symbols-outline" },
     -- import/override with your plugins
     { import = "plugins" },
-    { import = "plugins.lang" },
-    -- { import = "plugins.formatting" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

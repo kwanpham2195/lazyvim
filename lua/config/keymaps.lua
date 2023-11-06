@@ -16,9 +16,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- disable keymap lazy of LazyVim
-map("n", "<leader>l", "<Nop>")
-
 -- paste over currently selected text without yanking it
 map("v", "p", '"_dp')
 map("v", "P", '"_dP')
