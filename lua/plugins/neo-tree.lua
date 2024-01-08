@@ -4,8 +4,8 @@ return {
     window = {
       mappings = {
         -- conflict with flash.nvim
-        ["s"] = "noop",
-        ["S"] = "noop",
+        -- ["s"] = "noop",
+        -- ["S"] = "noop",
         -- use different binding
         ["|"] = "open_vsplit",
         ["-"] = "open_split",
