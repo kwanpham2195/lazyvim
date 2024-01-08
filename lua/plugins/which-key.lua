@@ -4,6 +4,8 @@ return {
   opts = {
     defaults = {
       ["<leader>h"] = { name = "+harpoon" },
+      ["<leader>gd"] = { name = "+diffview" },
+      ["<leader>gh"] = { name = "+gitsign" },
     },
   },
 }
