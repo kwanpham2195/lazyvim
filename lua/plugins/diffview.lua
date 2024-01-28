@@ -16,7 +16,7 @@ local M = {
       },
       keymaps = {
         disable_defaults = true, -- Disable the default keymaps
-        views = {
+        view = {
           { "n", "<tab>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
           {
             "n",

@@ -16,12 +16,12 @@ return {
     end, { desc = "Toggle quick menu" })
 
     -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set("n", "<leader>h[", function()
+    vim.keymap.set("n", "<leader>[", function()
       harpoon:list():prev()
-    end, { desc = "Previous" })
+    end, { desc = "Previous (Harpoon)" })
 
-    vim.keymap.set("n", "<leader>h[", function()
+    vim.keymap.set("n", "<leader>]", function()
       harpoon:list():next()
-    end, { desc = "Next" })
+    end, { desc = "Next (Harpoon)" })
   end,
 }
