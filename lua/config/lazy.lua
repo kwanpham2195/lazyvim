@@ -23,7 +23,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
-    { import = "lazyvim.plugins.extras.lang.java" },
+    -- { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.lang.tex" },
     -- test
     { import = "lazyvim.plugins.extras.test.core" },
     -- linting
@@ -39,7 +40,7 @@ require("lazy").setup({
     -- editor
     -- { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.editor.navic" },
-    { import = "lazyvim.plugins.extras.editor.symbols-outline" },
+    -- { import = "lazyvim.plugins.extras.editor.symbols-outline" },
     -- import/override with your plugins
     { import = "plugins" },
   },
