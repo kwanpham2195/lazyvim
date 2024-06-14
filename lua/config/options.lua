@@ -15,3 +15,4 @@
 -- *.swp,.lock,.DS_Store,._*
 -- */tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/target/**,**.terraform/**"
 -- ]]
+vim.g.root_spec = { "cwd" }

@@ -10,6 +10,9 @@ local M = {
     local actions = require("diffview.actions")
     require("diffview").setup({
       view = {
+        default = {
+          layout = "diff2_horizontal",
+        },
         merge_tool = {
           layout = "diff3_mixed",
         },
@@ -17,6 +20,12 @@ local M = {
       keymaps = {
         disable_defaults = true, -- Disable the default keymaps
         view = {
+          {
+            "n",
+            "<leader>gx",
+            actions.cycle_layout,
+            { desc = "Cycle through available layouts." },
+          },
           { "n", "<tab>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
           {
             "n",
