@@ -33,6 +33,7 @@ require("lazy").setup({
     -- formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- coding
+    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
