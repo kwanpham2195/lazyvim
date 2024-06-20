@@ -1,7 +1,7 @@
 local M = {
   "sindrets/diffview.nvim",
   keys = {
-    { "<leader>gdd", "<cmd>DiffviewOpen<cr>", desc = "Open" },
+    { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Open" },
     { "<leader>gdx", "<cmd>set hidden<cr><cmd>DiffviewClose<cr><cmd>set nohidden<cr>", desc = "Close" },
     { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "History current file" },
     { "<leader>gdb", "<cmd>DiffviewFileHistory<cr>", desc = "History current branch" },
@@ -47,50 +47,50 @@ local M = {
           },
           {
             "n",
-            "<leader>go",
+            "<leader>gdo",
             actions.conflict_choose("ours"),
             { desc = "Choose the OURS version of a conflict" },
           },
           {
             "n",
-            "<leader>gt",
+            "<leader>gdt",
             actions.conflict_choose("theirs"),
             { desc = "Choose the THEIRS version of a conflict" },
           },
           {
             "n",
-            "<leader>gb",
+            "<leader>gdb",
             actions.conflict_choose("base"),
             { desc = "Choose the BASE version of a conflict" },
           },
           {
             "n",
-            "<leader>ga",
+            "<leader>gda",
             actions.conflict_choose("all"),
             { desc = "Choose all the versions of a conflict" },
           },
 
           {
             "n",
-            "<leader>gO",
+            "<leader>gdO",
             actions.conflict_choose_all("ours"),
             { desc = "Choose the OURS version of a conflict for the whole file" },
           },
           {
             "n",
-            "<leader>gT",
+            "<leader>gdT",
             actions.conflict_choose_all("theirs"),
             { desc = "Choose the THEIRS version of a conflict for the whole file" },
           },
           {
             "n",
-            "<leader>gB",
+            "<leader>gdB",
             actions.conflict_choose_all("base"),
             { desc = "Choose the BASE version of a conflict for the whole file" },
           },
           {
             "n",
-            "<leader>gA",
+            "<leader>gdA",
             actions.conflict_choose_all("all"),
             { desc = "Choose all the versions of a conflict for the whole file" },
           },
