@@ -1,4 +1,4 @@
 return {
   "tpope/vim-fugitive",
-  cmd = { "Git", "Gread", "Gwrite", "Gvdiffsplit", "Gdiffsplit" },
+  cmd = { "G", "Git", "Gread", "Gwrite", "Gvdiffsplit", "Gdiffsplit" },
 }
