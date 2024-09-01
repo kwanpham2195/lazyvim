@@ -1,7 +1,7 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
+  spec = {
     defaults = {
       ["<leader>h"] = { name = "+harpoon" },
       ["<leader>gd"] = { name = "+diffview" },

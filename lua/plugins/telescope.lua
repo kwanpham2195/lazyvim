@@ -54,7 +54,6 @@ return {
           "node_modules/",
           "smalljre_*/*",
           "target/",
-          "vendor/*",
         },
       },
     },
