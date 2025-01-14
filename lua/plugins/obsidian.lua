@@ -73,4 +73,5 @@ return {
       return tostring(os.time()) .. "-" .. suffix
     end,
   },
+  enabled = false,
 }
