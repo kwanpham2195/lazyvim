@@ -47,52 +47,39 @@ local M = {
           },
           {
             "n",
-            "<leader>gdo",
+            "<leader>co",
             actions.conflict_choose("ours"),
             { desc = "Choose the OURS version of a conflict" },
           },
           {
             "n",
-            "<leader>gdt",
+            "<leader>ct",
             actions.conflict_choose("theirs"),
             { desc = "Choose the THEIRS version of a conflict" },
           },
           {
             "n",
-            "<leader>gdb",
+            "<leader>cb",
             actions.conflict_choose("base"),
             { desc = "Choose the BASE version of a conflict" },
           },
           {
             "n",
-            "<leader>gda",
-            actions.conflict_choose("all"),
-            { desc = "Choose all the versions of a conflict" },
-          },
-
-          {
-            "n",
-            "<leader>gdO",
+            "<leader>cO",
             actions.conflict_choose_all("ours"),
             { desc = "Choose the OURS version of a conflict for the whole file" },
           },
           {
             "n",
-            "<leader>gdT",
+            "<leader>cT",
             actions.conflict_choose_all("theirs"),
             { desc = "Choose the THEIRS version of a conflict for the whole file" },
           },
           {
             "n",
-            "<leader>gdB",
+            "<leader>cB",
             actions.conflict_choose_all("base"),
             { desc = "Choose the BASE version of a conflict for the whole file" },
-          },
-          {
-            "n",
-            "<leader>gdA",
-            actions.conflict_choose_all("all"),
-            { desc = "Choose all the versions of a conflict for the whole file" },
           },
         },
         diff1 = {
