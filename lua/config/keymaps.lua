@@ -21,10 +21,12 @@ map("v", "p", '"_dp')
 map("v", "P", '"_dP')
 
 -- tmux navigation
-map("n", "<C-h>", "<cmd>lua require('Navigator').left()<CR>", { noremap = true, silent = true })
-map("n", "<C-k>", "<cmd>lua require('Navigator').up()<CR>", { noremap = true, silent = true })
-map("n", "<C-l>", "<cmd>lua require('Navigator').right()<CR>", { noremap = true, silent = true })
-map("n", "<C-j>", "<cmd>lua require('Navigator').down()<CR>", { noremap = true, silent = true })
+if not vim.g.vscode then
+  map("n", "<C-h>", "<cmd>lua require('Navigator').left()<CR>", { noremap = true, silent = true })
+  map("n", "<C-k>", "<cmd>lua require('Navigator').up()<CR>", { noremap = true, silent = true })
+  map("n", "<C-l>", "<cmd>lua require('Navigator').right()<CR>", { noremap = true, silent = true })
+  map("n", "<C-j>", "<cmd>lua require('Navigator').down()<CR>", { noremap = true, silent = true })
+end
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
