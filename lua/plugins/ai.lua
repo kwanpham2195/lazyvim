@@ -3,6 +3,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    enabled = false,
     lazy = true,
     version = false, -- set this if you want to always pull the latest change
     opts = {
