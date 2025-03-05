@@ -34,11 +34,11 @@ fib(5)]],
       gemini_few_shots[2] = require("minuet.config").default_few_shots[2]
       require("minuet").setup({
         -- Your configuration options here
-        provider = "codestral",
+        provider = "gemini",
         n_completions = 1,
         add_single_line_entry = false,
         virtualtext = {
-          auto_trigger_ft = { "*" },
+          auto_trigger_ft = { "go" },
           auto_trigger_ignore_ft = {},
           keymap = {
             -- accept whole completion
@@ -129,7 +129,16 @@ fib(5)]],
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      model = "claude-3.7-sonnet",
+      model = "claude-3.5-sonnet",
+      mappings = {
+        reset = {
+          normal = "<C-r>",
+          insert = "<C-r>",
+        },
+        toggle_sticky = {
+          normal = "grr",
+        },
+      },
     },
   },
   {
