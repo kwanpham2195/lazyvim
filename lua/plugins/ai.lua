@@ -34,7 +34,7 @@ fib(5)]],
       gemini_few_shots[2] = require("minuet.config").default_few_shots[2]
       require("minuet").setup({
         -- Your configuration options here
-        provider = "gemini",
+        provider = "codestral",
         n_completions = 1,
         add_single_line_entry = false,
         virtualtext = {
@@ -102,30 +102,30 @@ fib(5)]],
       })
     end,
   },
-  {
-    "saghen/blink.cmp",
-    optional = true,
-    opts = {
-      keymap = {
-        ["<A-y>"] = {
-          function(cmp)
-            cmp.show({ providers = { "minuet" } })
-          end,
-        },
-      },
-      sources = {
-        -- if you want to use auto-complete
-        default = { "minuet" },
-        providers = {
-          minuet = {
-            name = "minuet",
-            module = "minuet.blink",
-            score_offset = 100,
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "saghen/blink.cmp",
+  --   optional = true,
+  --   opts = {
+  --     keymap = {
+  --       ["<A-y>"] = {
+  --         function(cmp)
+  --           cmp.show({ providers = { "minuet" } })
+  --         end,
+  --       },
+  --     },
+  --     sources = {
+  --       -- if you want to use auto-complete
+  --       default = { "minuet" },
+  --       providers = {
+  --         minuet = {
+  --           name = "minuet",
+  --           module = "minuet.blink",
+  --           score_offset = 100,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
