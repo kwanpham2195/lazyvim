@@ -42,7 +42,7 @@ fib(5)]],
           auto_trigger_ignore_ft = {},
           keymap = {
             -- accept whole completion
-            accept = "<Tab>",
+            accept = "<A-y>",
             -- accept one line
             accept_line = "<A-a>",
             -- accept n lines (prompts for number)
@@ -56,6 +56,16 @@ fib(5)]],
           },
         },
         provider_options = {
+          openai_fim_compatible = {
+            api_key = "TERM", -- Please Don't change this, just use TERM should be fine.
+            name = "Ollama",
+            end_point = "http://localhost:11434/v1/completions",
+            model = "qwen2.5-coder:7b",
+            optional = {
+              max_tokens = 256,
+              top_p = 0.9,
+            },
+          },
           codestral = {
             optional = {
               max_tokens = 256,

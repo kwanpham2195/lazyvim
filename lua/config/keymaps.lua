@@ -28,5 +28,23 @@ if not vim.g.vscode then
   map("n", "<C-j>", "<cmd>lua require('Navigator').down()<CR>", { noremap = true, silent = true })
 end
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- By default, CTRL-U and CTRL-D scroll by half a screen (50% of the window height)
+-- Scroll by 35% of the window height and keep the cursor centered
+local scroll_percentage = 0.35
+-- Scroll by a percentage of the window height and keep the cursor centered
+vim.keymap.set("n", "<C-d>", function()
+  local lines = math.floor(vim.api.nvim_win_get_height(0) * scroll_percentage)
+  vim.cmd("normal! " .. lines .. "jzz")
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-u>", function()
+  local lines = math.floor(vim.api.nvim_win_get_height(0) * scroll_percentage)
+  vim.cmd("normal! " .. lines .. "kzz")
+end, { noremap = true, silent = true })
+
+-- When jumping with ctrl+d and u the cursors stays in the middle
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+map("n", "<leader>gb", function()
+  Snacks.git.blame_line()
+end, { desc = "Git Blame Line" })
