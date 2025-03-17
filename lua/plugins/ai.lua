@@ -165,7 +165,7 @@ fib(5)]],
 
       ---@alias AvanteProvider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "copilot", -- Recommend using Claude
-      auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
       copilot = {
         model = "claude-3.7-sonnet",
         temperature = 0,
@@ -177,6 +177,10 @@ fib(5)]],
       file_selector = {
         provider = "snacks", -- Avoid native provider issues
         provider_opts = {},
+      },
+      behaviour = {
+        auto_suggestions = false, -- Experimental stage
+        enable_cursor_planning_mode = true,
       },
     },
     build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
