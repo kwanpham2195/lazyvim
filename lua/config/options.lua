@@ -17,14 +17,19 @@
 -- ]]
 vim.g.root_spec = { "cwd" }
 
--- Disable all animations
 vim.g.snacks_animate = false
 
 -- Enable the option to require a Prettier config file
 -- If no prettier config file is found, the formatter will not be used
-vim.g.lazyvim_prettier_needs_config = false
+vim.g.lazyvim_prettier_needs_config = true
 
 -- Set to false to disable auto format
 vim.g.lazyvim_eslint_auto_format = true
 
 vim.g.lazyvim_blink_main = true
+
+-- LazyVim auto format
+vim.g.autoformat = true
+
+-- disable copilot in cmp source
+vim.g.ai_cmp = false

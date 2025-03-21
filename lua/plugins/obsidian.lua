@@ -1,5 +1,6 @@
 return {
   "epwalsh/obsidian.nvim",
+  enabled = true,
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -16,7 +17,6 @@ return {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
     "ibhagwan/fzf-lua",
-    "nvim-treesitter",
   },
   config = function(_, opts)
     -- Setup obsidian.nvim
@@ -37,6 +37,7 @@ return {
       { "<leader>on", "<cmd>ObsidianQuickSwitch nav<cr>", desc = "Nav" },
       { "<leader>or", "<cmd>ObsidianRename<cr>", desc = "Rename" },
       { "<leader>oc", "<cmd>ObsidianTOC<cr>", desc = "Contents (TOC)" },
+      { "<leader>ox", desc = "Toggle checkbox" },
       {
         "<leader>ow",
         function()
@@ -209,7 +210,7 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
       },
       -- Toggle check-boxes.
-      ["<leader>ch"] = {
+      ["<leader>ox"] = {
         action = function()
           return require("obsidian").util.toggle_checkbox()
         end,
@@ -339,9 +340,8 @@ return {
         return string.format("![%s](%s)", path.name, path)
       end,
     },
-  },
-
-  ui = {
-    enable = false,
+    ui = {
+      enable = false,
+    },
   },
 }

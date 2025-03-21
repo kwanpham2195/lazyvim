@@ -1,8 +1,14 @@
-local prefix = "<Leader>a"
 return {
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      copilot_model = "gpt-4o-copilot",
+    },
+  },
   {
     "milanglacier/minuet-ai.nvim",
     event = "BufReadPre",
+    enabled = false,
     config = function()
       local gemini_prompt = [[
 You are the backend of an AI-powered code completion engine. Your task is to
@@ -155,6 +161,7 @@ fib(5)]],
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    enabled = true,
     dependencies = {
       "stevearc/dressing.nvim",
       "zbirenbaum/copilot.lua", -- for providers='copilot'
@@ -165,9 +172,9 @@ fib(5)]],
 
       ---@alias AvanteProvider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "copilot", -- Recommend using Claude
-      auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
       copilot = {
-        model = "claude-3.7-sonnet",
+        model = "claude-3.5-sonnet",
         temperature = 0,
         max_tokens = 8192,
       },
@@ -179,8 +186,12 @@ fib(5)]],
         provider_opts = {},
       },
       behaviour = {
-        auto_suggestions = false, -- Experimental stage
+        auto_suggestions = true, -- Experimental stage
         enable_cursor_planning_mode = true,
+      },
+      suggestion = {
+        debounce = 600,
+        throttle = 600,
       },
     },
     build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
