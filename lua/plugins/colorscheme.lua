@@ -6,8 +6,28 @@ return {
     },
   },
   {
+    "f-person/auto-dark-mode.nvim",
+    commit = "02ef955",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      update_interval = 1000,
+      set_dark_mode = function()
+        vim.api.nvim_set_option_value("background", "dark", {})
+        vim.cmd.colorscheme("catppuccin-macchiato")
+      end,
+      set_light_mode = function()
+        vim.api.nvim_set_option_value("background", "light", {})
+        vim.cmd.colorscheme("catppuccin-latte")
+      end,
+    },
+    fallback = "dark",
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
+    priority = 1000,
     opts = {
       flavour = "auto", -- latte, frappe, macchiato, mocha
       background = { -- :h background
@@ -18,7 +38,7 @@ return {
       transparent_background = false, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       dim_inactive = {
-        enabled = true, -- dims the background color of inactive window
+        enabled = false, -- dims the background color of inactive window
         shade = "dark",
         percentage = 0.15, -- percentage of the shade to apply to the inactive window
       },
@@ -34,6 +54,12 @@ return {
         booleans = {},
         properties = {},
         types = {},
+      },
+      color_overrides = {
+        latte = {},
+        frappe = {},
+        macchiato = {},
+        mocha = {},
       },
       integrations = {
         aerial = true,
