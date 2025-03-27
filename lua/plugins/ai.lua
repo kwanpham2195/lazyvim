@@ -1,8 +1,30 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
     opts = {
       copilot_model = "gpt-4o-copilot",
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 75,
+        keymap = {
+          accept = "<A-y>",
+          accept_word = false,
+          accept_line = "<A-a>",
+          next = "<A-]>",
+          prev = "<A-[>",
+          dismiss = "<A-e>",
+        },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
     },
   },
   {
@@ -171,12 +193,30 @@ fib(5)]],
       hints = { enabled = false },
 
       ---@alias AvanteProvider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-      provider = "copilot", -- Recommend using Claude
-      auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      provider = "deepseek",
+      auto_suggestions_provider = nil,
       copilot = {
         model = "claude-3.5-sonnet",
         temperature = 0,
         max_tokens = 8192,
+      },
+      openai = {
+        model = "o3-mini",
+        reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      },
+      vendors = {
+        openrouter = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          model = "google/gemini-2.5-pro-exp-03-25:free",
+        },
+        deepseek = {
+          __inherited_from = "openai",
+          api_key_name = "DEEPSEEK_API_KEY",
+          endpoint = "https://api.deepseek.com",
+          model = "deepseek-chat",
+        },
       },
 
       -- File selector configuration
@@ -186,7 +226,7 @@ fib(5)]],
         provider_opts = {},
       },
       behaviour = {
-        auto_suggestions = true, -- Experimental stage
+        auto_suggestions = false, -- Experimental stage
         enable_cursor_planning_mode = true,
       },
       suggestion = {
