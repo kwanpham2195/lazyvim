@@ -18,7 +18,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y luarocks
-          luarocks install luacheck
+          luarocks install --local luacheck
+
+      - name: Add local LuaRocks bin to PATH
+        run: echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
 
       - name: Run Luacheck (Lint Lua files)
         run: |

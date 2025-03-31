@@ -1,6 +1,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    enabled = false,
     cmd = "Copilot",
     build = ":Copilot auth",
     event = "BufReadPost",
@@ -30,7 +31,7 @@ return {
   {
     "milanglacier/minuet-ai.nvim",
     event = "BufReadPre",
-    enabled = false,
+    enabled = true,
     config = function()
       local gemini_prompt = [[
 You are the backend of an AI-powered code completion engine. Your task is to
@@ -70,7 +71,7 @@ fib(5)]],
           auto_trigger_ignore_ft = {},
           keymap = {
             -- accept whole completion
-            accept = "<Tab>",
+            accept = "<A-y>",
             -- accept one line
             accept_line = "<A-a>",
             -- accept n lines (prompts for number)
@@ -102,36 +103,18 @@ fib(5)]],
           },
           gemini = {
             model = "gemini-2.0-flash",
-            system = {
-              prompt = gemini_prompt,
-            },
-            few_shots = gemini_few_shots,
-            chat_input = {
-              template = gemini_chat_input_template,
-            },
-            -- stream = true,
-            api_key = "GEMINI_API_KEY",
             optional = {
               generationConfig = {
                 maxOutputTokens = 256,
-                topP = 0.9,
               },
               safetySettings = {
                 {
+                  -- HARM_CATEGORY_HATE_SPEECH,
+                  -- HARM_CATEGORY_HARASSMENT
+                  -- HARM_CATEGORY_SEXUALLY_EXPLICIT
                   category = "HARM_CATEGORY_DANGEROUS_CONTENT",
-                  threshold = "BLOCK_NONE",
-                },
-                {
-                  category = "HARM_CATEGORY_HATE_SPEECH",
-                  threshold = "BLOCK_NONE",
-                },
-                {
-                  category = "HARM_CATEGORY_HARASSMENT",
-                  threshold = "BLOCK_NONE",
-                },
-                {
-                  category = "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                  threshold = "BLOCK_NONE",
+                  -- BLOCK_NONE
+                  threshold = "BLOCK_ONLY_HIGH",
                 },
               },
             },
@@ -196,13 +179,13 @@ fib(5)]],
       provider = "deepseek",
       auto_suggestions_provider = nil,
       copilot = {
-        model = "claude-3.5-sonnet",
+        model = "gpt-4o",
         temperature = 0,
         max_tokens = 8192,
       },
       openai = {
         model = "o3-mini",
-        reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+        reasoning_effort = "high", -- low|medium|high, only used for reasoning models
       },
       vendors = {
         openrouter = {
@@ -216,6 +199,7 @@ fib(5)]],
           api_key_name = "DEEPSEEK_API_KEY",
           endpoint = "https://api.deepseek.com",
           model = "deepseek-chat",
+          max_tokens = 8192,
         },
       },
 
@@ -228,10 +212,14 @@ fib(5)]],
       behaviour = {
         auto_suggestions = false, -- Experimental stage
         enable_cursor_planning_mode = true,
+        enable_token_counting = false, -- Whether to enable token counting. Default to true.
       },
       suggestion = {
         debounce = 600,
         throttle = 600,
+      },
+      windows = {
+        width = 50,
       },
     },
     build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
@@ -269,6 +257,23 @@ fib(5)]],
             opts = {},
           },
         },
+      },
+    },
+  },
+  {
+    -- support for image pasting
+    "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- recommended settings
+      default = {
+        embed_image_as_base64 = false,
+        prompt_for_file_name = false,
+        drag_and_drop = {
+          insert_mode = true,
+        },
+        -- required for Windows users
+        use_absolute_path = true,
       },
     },
   },
