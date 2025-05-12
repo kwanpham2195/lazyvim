@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("User", {
     -- Code Navigation
     vim.keymap.set("n", "gd", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>")
     vim.keymap.set("n", "gD", "<Cmd>call VSCodeNotify('editor.action.revealDeclaration')<CR>")
-    vim.keymap.set("n", "gi", "<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>")
+    vim.keymap.set("n", "gI", "<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>")
     vim.keymap.set("n", "gr", "<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>")
 
     -- Code actions and refactoring

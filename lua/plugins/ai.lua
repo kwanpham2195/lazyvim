@@ -1,66 +1,9 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    enabled = false,
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    event = "BufReadPost",
-    opts = {
-      copilot_model = "gpt-4o-copilot",
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        hide_during_completion = true,
-        debounce = 75,
-        keymap = {
-          accept = "<A-y>",
-          accept_word = false,
-          accept_line = "<A-a>",
-          next = "<A-]>",
-          prev = "<A-[>",
-          dismiss = "<A-e>",
-        },
-      },
-      panel = { enabled = false },
-      filetypes = {
-        markdown = true,
-        help = true,
-      },
-    },
-  },
-  {
     "milanglacier/minuet-ai.nvim",
     event = "BufReadPre",
-    enabled = true,
+    enabled = false,
     config = function()
-      local gemini_prompt = [[
-You are the backend of an AI-powered code completion engine. Your task is to
-provide code suggestions based on the user's input. The user's code will be
-enclosed in markers:
-
-- `<contextAfterCursor>`: Code context after the cursor
-- `<cursorPosition>`: Current cursor location
-- `<contextBeforeCursor>`: Code context before the cursor
-]]
-
-      local gemini_few_shots = {}
-
-      gemini_few_shots[1] = {
-        role = "user",
-        content = [[
-# language: python
-<contextBeforeCursor>
-def fibonacci(n):
-    <cursorPosition>
-<contextAfterCursor>
-
-fib(5)]],
-      }
-
-      local gemini_chat_input_template =
-        "{{{language}}}\n{{{tab}}}\n<contextBeforeCursor>\n{{{context_before_cursor}}}<cursorPosition>\n<contextAfterCursor>\n{{{context_after_cursor}}}"
-
-      gemini_few_shots[2] = require("minuet.config").default_few_shots[2]
       require("minuet").setup({
         -- Your configuration options here
         provider = "gemini",
@@ -123,50 +66,10 @@ fib(5)]],
       })
     end,
   },
-  -- {
-  --   "saghen/blink.cmp",
-  --   optional = true,
-  --   opts = {
-  --     keymap = {
-  --       ["<A-y>"] = {
-  --         function(cmp)
-  --           cmp.show({ providers = { "minuet" } })
-  --         end,
-  --       },
-  --     },
-  --     sources = {
-  --       -- if you want to use auto-complete
-  --       default = { "minuet" },
-  --       providers = {
-  --         minuet = {
-  --           name = "minuet",
-  --           module = "minuet.blink",
-  --           score_offset = 100,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    enabled = false,
-    opts = {
-      model = "claude-3.7-sonnet",
-      mappings = {
-        reset = {
-          normal = "<C-r>",
-          insert = "<C-r>",
-        },
-        toggle_sticky = {
-          normal = "grr",
-        },
-      },
-    },
-  },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "stevearc/dressing.nvim",
       "zbirenbaum/copilot.lua", -- for providers='copilot'
@@ -202,6 +105,9 @@ fib(5)]],
           max_tokens = 8192,
         },
       },
+      web_search_engine = {
+        provider = "google", -- tavily, serpapi, searchapi, google or kagi
+      },
 
       -- File selector configuration
       --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
@@ -219,7 +125,7 @@ fib(5)]],
         throttle = 600,
       },
       windows = {
-        width = 50,
+        width = 40,
       },
     },
     build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
@@ -261,23 +167,6 @@ fib(5)]],
     },
   },
   {
-    -- support for image pasting
-    "HakonHarnes/img-clip.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- recommended settings
-      default = {
-        embed_image_as_base64 = false,
-        prompt_for_file_name = false,
-        drag_and_drop = {
-          insert_mode = true,
-        },
-        -- required for Windows users
-        use_absolute_path = true,
-      },
-    },
-  },
-  {
     "MeanderingProgrammer/render-markdown.nvim",
     optional = true,
     ft = function(_, ft)
@@ -293,6 +182,51 @@ fib(5)]],
     opts = {
       spec = {
         { "<leader>a", group = "ai" },
+      },
+    },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    opts = {
+      copilot_model = "gpt-4o-copilot",
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 75,
+        keymap = {
+          accept = "<A-y>",
+          accept_word = false,
+          accept_line = "<A-a>",
+          next = "<A-]>",
+          prev = "<A-[>",
+          dismiss = "<A-e>",
+        },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = false,
+    opts = {
+      model = "claude-3.7-sonnet",
+      mappings = {
+        reset = {
+          normal = "<C-r>",
+          insert = "<C-r>",
+        },
+        toggle_sticky = {
+          normal = "grr",
+        },
       },
     },
   },
