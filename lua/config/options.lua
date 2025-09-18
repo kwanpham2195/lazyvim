@@ -26,7 +26,7 @@ vim.g.lazyvim_prettier_needs_config = true
 -- Set to false to disable auto format
 vim.g.lazyvim_eslint_auto_format = true
 
-vim.g.lazyvim_blink_main = true
+vim.g.lazyvim_blink_main = false
 
 -- LazyVim auto format
 vim.g.autoformat = true
