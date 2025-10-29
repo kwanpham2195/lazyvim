@@ -1,5 +1,16 @@
 return {
   {
+    "folke/sidekick.nvim",
+    opts = {
+      cli = {
+        mux = {
+          backend = "tmux",
+          enabled = true,
+        },
+      },
+    },
+  },
+  {
     "milanglacier/minuet-ai.nvim",
     event = "BufReadPre",
     enabled = false,
@@ -175,15 +186,6 @@ return {
     opts = function(_, opts)
       opts.file_types = vim.list_extend(opts.file_types or {}, { "Avante" })
     end,
-  },
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      spec = {
-        { "<leader>a", group = "ai" },
-      },
-    },
   },
   {
     "zbirenbaum/copilot.lua",
