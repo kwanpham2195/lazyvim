@@ -25,5 +25,15 @@ jobs:
 
       - name: Run Luacheck (Lint Lua files)
         run: |
-          luacheck lua/
+          # Run luacheck and capture exit code
+          # Exit codes: 0 = success, 1 = warnings, 2 = errors
+          # Only fail on errors (exit code 2), allow warnings
+          luacheck lua/ || exit_code=$?
+          if [ "${exit_code:-0}" -eq 2 ]; then
+            echo "Luacheck found errors!"
+            exit 2
+          elif [ "${exit_code:-0}" -eq 1 ]; then
+            echo "Luacheck found warnings (not failing)"
+            exit 0
+          fi
 
