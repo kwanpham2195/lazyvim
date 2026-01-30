@@ -48,3 +48,7 @@ end, { noremap = true, silent = true })
 map("n", "<leader>gb", function()
   Snacks.git.blame_line()
 end, { desc = "Git Blame Line" })
+
+-- Copy file paths
+map("n", "<leader>yp", "<cmd>CopyRelPath<CR>", { desc = "Yank relative path" })
+map("n", "<leader>yP", "<cmd>CopyAbsPath<CR>", { desc = "Yank absolute path" })

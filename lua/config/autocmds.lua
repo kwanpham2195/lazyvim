@@ -4,7 +4,14 @@
 --
 -- Copy relative path to clipboard
 vim.api.nvim_create_user_command("CopyRelPath", function()
-  local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  local path = vim.fn.expand("%:.")
+  vim.api.nvim_call_function("setreg", { "+", path })
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+-- Copy absolute path to clipboard
+vim.api.nvim_create_user_command("CopyAbsPath", function()
+  local path = vim.fn.expand("%:p")
   vim.api.nvim_call_function("setreg", { "+", path })
   vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
