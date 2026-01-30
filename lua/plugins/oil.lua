@@ -10,7 +10,15 @@ return {
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
     config = function()
-      require("oil").setup({})
+      require("oil").setup({
+        columns = {
+          -- "icon",
+          -- "permissions",
+          -- "size",
+          -- "mtime",
+        },
+        delete_to_trash = true,
+      })
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
